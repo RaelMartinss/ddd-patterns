@@ -1,6 +1,6 @@
 import Address from "./address";
 
-class Customer {
+export default class Customer {
   private readonly _id: string;
   private _name: string;
   private _address: Address;
@@ -50,33 +50,3 @@ class Customer {
     this._active = false;
   }
 }
-
-
-const address = new Address(
-  "123 Main St",
-  "100",
-  "New York",
-  "NY",
-  "10001"
-);
-
-const customer = new Customer("1", "John Doe", address);
-console.log(customer.id); // Output: 1
-console.log(customer.name); // Output: John Doe
-console.log(customer.address); // Output: 123 Main St
-console.log(customer.active); // Output: true
-
-customer.changeName("Jane Doe");
-console.log(customer.name); // Output: Jane Doe
-
-customer.changeAddress(new Address(
-  "456 Elm St", 
-  "200", 
-  "New York", 
-  "NY", 
-  "10002"
-));
-console.log(customer.address.toString()); // Output: 456 Elm St
-
-customer.activate();
-console.log(customer.active); // Output: false
