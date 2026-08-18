@@ -38,6 +38,3 @@ console.log(`Customer New Name: ${customer.name}`); // Output: Jane Doe
 
 // customer.activate();
 // console.log(customer.active); // Output: false
-console.log(`Created order: 
-    order ID: ${order.orderId} 
-    with items: ${orderItem.name} and ${orderItem2.name}`);
