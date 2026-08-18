@@ -50,3 +50,9 @@ export default class Customer {
     this._active = false;
   }
 }
+
+const b = (a: number, b: number) => {
+  return a + b;
+}
+
+console.log(b(2, 2));

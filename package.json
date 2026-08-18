@@ -1,9 +1,16 @@
 {
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@swc/cli": "^0.8.1",
+    "@swc/core": "^1.16.0",
+    "@swc/jest": "^0.2.39",
+    "@types/jest": "^30.0.0",
     "@typescript/typescript6": "^6.0.2",
     "eslint": "^10.8.1",
     "globals": "^17.11.0",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.12",
+    "ts-node": "^10.9.2",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.67.0"
   },
@@ -12,7 +19,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "clear && npx tsc && node dist/main.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build": "npx tsc",
+    "start": "node dist/main.js"
   },
   "keywords": [],
   "author": "",
