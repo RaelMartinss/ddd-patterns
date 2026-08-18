@@ -1,58 +1,72 @@
 import Address from "./address";
 
 export default class Customer {
-  private readonly _id: string;
-  private _name: string;
-  private _address: Address;
+  private _id: string;
+  private _name: string = "";
+  private _address!: Address;
   private _active: boolean = false;
+  private _rewardPoints: number = 0;
 
-  constructor(id: string, name: string, address: Address) {
+  constructor(id: string, name: string) {
     this._id = id;
-    this._name = Customer.validateName(name);
+    this._name = name;
+    this.validate();
+  }
+
+  get id(): string {
+    return this._id;
+  }
+
+  get name(): string {
+    return this._name;
+  }
+
+  get rewardPoints(): number {
+    return this._rewardPoints;
+  }
+
+  validate() {
+    if (this._id.length === 0) {
+      throw new Error("Id is required");
+    }
+    if (this._name.length === 0) {
+      throw new Error("Name is required");
+    }
+  }
+
+  changeName(name: string) {
+    this._name = name;
+    this.validate();
+  }
+
+  get Address(): Address {
+    return this._address;
+  }
+  
+  changeAddress(address: Address) {
     this._address = address;
   }
 
-  get id(): string { return this._id; }
-  get name(): string { return this._name; }
-  get address(): Address { return this._address; }
-  get active(): boolean { return this._active; }
-
-  private static validateName(name: string): string {
-    const value = name.trim();
-
-    if (!value) {
-      throw new Error("The name cannot be empty.");
-    }
-    
-    return value;
+  isActive(): boolean {
+    return this._active;
   }
 
-  changeName(newName: string): void {
-    this._name = Customer.validateName(newName);
-  }
-
-  changeAddress(newAddress: Address): void {
-    this._address = newAddress;
-  }
-
-  activate(): void {
-    if (this._active) {
-      throw new Error("The customer is already activated.");
+  activate() {
+    if (this._address === undefined) {
+      throw new Error("Address is mandatory to activate a customer");
     }
     this._active = true;
   }
 
-  deactivate(): void {
-    if (!this._active) {
-      throw new Error("The customer is already deactivated.");
-    }
-
+  deactivate() {
     this._active = false;
   }
-}
 
-const b = (a: number, b: number) => {
-  return a + b;
-}
+  addRewardPoints(points: number) {
+    this._rewardPoints += points;
+  }
 
-console.log(b(2, 2));
+  set Address(address: Address) {
+    this._address = address;
+  }
+}

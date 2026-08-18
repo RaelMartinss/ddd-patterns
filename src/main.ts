@@ -12,15 +12,17 @@ let address = new Address(
   "10001"
 );
 
-let customer = new Customer("12", "John Doe", address);
+let customer = new Customer("12", "John Doe");
+
+let customer2 = new Customer("", "Jane Doe"); // This will throw an error because the id is empty
+console.log(`Customer2 ID: ${customer2.id}`); // Output: 12
+
 let orderItem = new OrderItem("1", "Laptop", 1000);
 let orderItem2 = new OrderItem("2", "Mouse", 50);
 let order = new Order("1", customer.id, [orderItem, orderItem2]);
 
 console.log(`Customer ID: ${customer.id}`); // Output: 12
 console.log(`Customer Name: ${customer.name}`); // Output: John Doe
-console.log(`Customer Address: ${customer.address}`); // Output: 123 Main St
-console.log(`Customer Active: ${customer.active}`); // Output: true
 
 customer.changeName("Jane Doe");
 console.log(`Customer New Name: ${customer.name}`); // Output: Jane Doe
