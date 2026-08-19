@@ -42,5 +42,3 @@ describe('Order unit tests', () => {
         }).toThrow("Quantity must be greater than 0");
     });
 });
-
-relacionando item com produto
