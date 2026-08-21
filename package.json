@@ -10,6 +10,7 @@
     "eslint": "^10.8.1",
     "globals": "^17.11.0",
     "jest": "^30.4.2",
+    "reflect-metadata": "^0.2.2",
     "ts-jest": "^29.4.12",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3",
@@ -31,6 +32,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "sequelize": "^6.37.8",
+    "sequelize-typescript": "^2.1.6",
+    "sqlite3": "^6.0.1",
     "uuid": "^14.0.2"
+  },
+  "allowScripts": {
+    "@swc/core@1.16.0": true,
+    "unrs-resolver@1.12.2": true
   }
 }
