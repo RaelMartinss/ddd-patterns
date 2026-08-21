@@ -14,11 +14,11 @@ let address = new Address(
 
 let customer = new Customer("12", "John Doe");
 
-let customer2 = new Customer("", "Jane Doe"); // This will throw an error because the id is empty
-console.log(`Customer2 ID: ${customer2.id}`); // Output: 12
+let customer2 = new Customer("13", "Jane Doe");
+console.log(`Customer2 ID: ${customer2.id}`); // Output: 13
 
-let orderItem = new OrderItem("1", "Laptop", 1000);
-let orderItem2 = new OrderItem("2", "Mouse", 50);
+let orderItem = new OrderItem("1", "Laptop", 1000, "p1", 1);
+let orderItem2 = new OrderItem("2", "Mouse", 50, "p2", 2);
 let order = new Order("1", customer.id, [orderItem, orderItem2]);
 
 console.log(`Customer ID: ${customer.id}`); // Output: 12
