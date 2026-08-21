@@ -7,8 +7,14 @@ import type {Config} from 'jest';
 
 const config: Config = {
   transform: {
-    "^.+\\.(t|j)sx?$": "@swc/jest",
+    "^.+\\.(t|j)sx?$": ["@swc/jest", {
+      module: {
+        type: "commonjs",
+      },
+    }],
   },
+  // uuid v14 is ESM-only; transform it so the CommonJS Jest runtime can load it.
+  transformIgnorePatterns: ["/node_modules/(?!(uuid)/)"],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
